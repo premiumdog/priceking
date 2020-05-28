@@ -1,0 +1,64 @@
+{% extends "../base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+{% if category %}{{ category.name }}{% else %}Fiókadatok módosítása{% endif %}
+{% endblock %}
+
+{% block content %}
+
+
+<aside class="col-lg-3 blog-sidebar order-1 order-lg-0">
+
+  <div class="sidebar p-4 bg-light mb-3">
+    <h6 class="sidebar-title">Vezérlőpult</h6>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="{% url 'accounts:profile_credit' %}">Kreditfeltöltés</a>
+      <a class="nav-link" href="{% url 'accounts:profile' %}">Fiókom</a>
+      <a class="nav-link active" href="{% url 'accounts:profile_edit' %}">Fiókadatok módosítása</a>
+      <a class="nav-link" href="{% url 'accounts:profile_product' %}">Saját termékeim</a>
+      <a class="nav-link" href="{% url 'accounts:profile_affiliate' %}">Statisztika</a>
+    </nav>
+  </div>
+
+
+
+</aside><!-- /.blog-sidebar -->
+
+<div class="col-lg-9 blog-main order-0 order-lg-1">
+
+  <div class="sidebar p-0 bg-light mb-3 border-left-orange">
+    <nav class="nav main-nav">
+      <a class="nav-link" href="/">Kezdőlap</a>
+      <a class="nav-link" href="{% url 'shop:product_latest' %}">Újdonságok</a>
+      <a class="nav-link" href="{% url 'shop:product_most_viewed' %}">Legjobb minőségű termékek</a>
+      <a class="nav-link" href="{% url 'shop:product_offer' %}">Aktuális ajánlatok</a>
+      <a class="nav-link" href="{% url 'shop:product_discount' %}">% Akció</a>
+    </nav>
+  </div>
+
+  <div class="home-header">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Kezdőlap</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Fiókadatok módosítása</li>
+      </ol>
+    </nav>
+  </div>
+
+  <div class="row px-3">
+    <div class="col-12 bg-light p-4">
+      <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <table>
+          {{ profile_form|crispy }}
+        </table>
+        <button type="submit" class="btn btn-secondary btn-block">Módosítás</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+{% endblock %}

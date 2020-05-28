@@ -1,0 +1,343 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block meta %}
+<!-- This site is optimized with premiumDog.hu SEO -->
+<meta name="description" content="A kutyák azért születnek hogy megváltoztassák és jobbá tegyék az életünket! Te milyen terméket keresel? Rendelj ONLINE most!"/>
+<link rel="canonical" href="https://premiumdog.hu/" />
+<meta property="og:locale" content="hu_HU" />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Vásárolj kutyádnak a premiumDog-on." />
+<meta property="og:description" content="A kutyák azért születnek hogy megváltoztassák és jobbá tegyék az életünket! Te milyen terméket keresel? Rendelj ONLINE most!" />
+<meta property="og:url" content="https://premiumdog.hu/" />
+<meta property="og:site_name" content="premiumDog.hu" />
+<meta property="og:image" content="https://premiumdog.hu/static/favicon/premiumdog.png" />
+<meta property="og:image:secure_url" content="https://premiumdog.hu/static/favicon/premiumdog.png" />
+<meta property="og:image:alt" content="premiumDog.hu" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="A kutyák azért születnek hogy megváltoztassák és jobbá tegyék az életünket! Te milyen terméket keresel? Rendelj ONLINE most!" />
+<meta name="twitter:title" content="Vásárolj kutyádnak a premiumDog-on." />
+<meta name="twitter:image" content="https://premiumdog.hu/static/favicon/premiumdog.png" />
+<meta name="twitter:creator" content="@premiumDog" />
+<meta name="description" content="A kutyák azért születnek hogy megváltoztassák és jobbá tegyék az életünket! Te milyen terméket keresel? Rendelj ONLINE most!">
+<!-- / premiumDog.hu SEO -->
+{% endblock %}
+
+{% block json-ld %}
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Organization",
+    "name": "premiumDog.hu",
+    "url": "https://premiumdog.hu",
+    "sameAs": [
+      "https://www.facebook.com/premiumDog.hu/",
+      "https://www.instagram.com/premiumdog.hu/"
+    ],
+    "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Szombathely, Jázmin utca 7/B",
+    "addressRegion": "Vas",
+    "postalCode": "9700",
+    "addressCountry": "HU"
+  }
+  }
+</script>
+{% endblock %}
+
+{% block title %}
+{% if category %}{{ category.name }}{% else %}Kezdőlap{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<aside class="col-lg-3 blog-sidebar order-1 order-lg-0">
+
+  <div class="sidebar p-4 bg-light mb-3">
+    <h6 class="sidebar-title">Termékkategóriák</h6>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="{% url 'shop:category_list' %}">Összes kategória</a>
+      {% for category in categories%}
+      <a class="nav-link" href="{{ category.get_absolute_url }}">{{category.name}}</a>
+      {% endfor%}
+    </nav>
+  </div>
+
+
+  <div class="sidebar p-4 mb-3 bg-light my-3">
+    <h6 class="sidebar-title">Blöki Blog</h6>
+    <nav class="nav flex-column">
+        <a class="nav-link" href="{% url 'article:article_list' %}">Összes bejegyzés</a>
+      <a class="nav-link" href="{% url 'article:article_list_latest' %}">Legújabb bejegyzések</a>
+    </nav>
+  </div>
+
+  <div class="p-0">
+    <img src="/static/uploads/nrdogs-side.jpg" class="w-100" alt="">
+  </div>
+
+
+</aside><!-- /.blog-sidebar -->
+
+
+<div class="col-lg-9 blog-main order-0 order-lg-1">
+
+  <div class="sidebar p-0 bg-light mb-3 border-left-orange">
+    <nav class="nav main-nav">
+      <a class="nav-link active" href="/">Kezdőlap</a>
+      <a class="nav-link" href="{% url 'shop:product_latest' %}">Újdonságok</a>
+      <a class="nav-link" href="{% url 'shop:product_most_viewed' %}">Legnépszerűbb termékek</a>
+      <a class="nav-link" href="{% url 'shop:product_offer' %}">Aktuális ajánlatok</a>
+      <a class="nav-link" href="{% url 'shop:product_discount' %}">% Akció</a>
+    </nav>
+  </div>
+
+  <div class="home-slider">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+         <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+      </ol>
+      <div class="carousel-inner">
+          <div class="carousel-item active">
+          <img class="d-block w-100"
+            src="/static/uploads/number1.png"
+            alt="Starfire">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100"
+            src="/static/uploads/starfire.png"
+            alt="Starfire">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100"
+            src="/static/uploads/mybulldog.png"
+            alt="MyBulldogShop">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100"
+            src="/static/uploads/debbiedog.jpg"
+            alt="DebbieDog">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100"
+            src="/static/uploads/nrdogs-main.jpg"
+            alt="NrDogs">
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </div>
+
+
+  <h6 class="pb-2 my-4 border-bottom font-weight-bold">
+    Top webáruházak a premiumDog-on
+  </h6>
+
+  <div class="row">
+    {%for company in companies%}
+    <div class="col-6 col-lg-3 mb-3">
+        <a href="{% url 'shop:store_details' company.user.id %}">
+      <div class="card shadow-sm">
+        <div
+          style="background: url('../media/{{company.profile_image}}');height:180px;background-position: center center;background-repeat: no-repeat;background-size: 50%;">
+        </div>
+        <div class="card-body">
+          <h5 class="card-title"><a href="{% url 'shop:store_details' company.user.id %}">{{company.store_name}}</a>
+          </h5>
+        </div>
+      </div>
+      </a>
+    </div>
+    {%endfor%}
+  </div>
+
+
+
+
+  <h6 class="pb-2 my-4 border-bottom font-weight-bold">
+    Újdonságok:
+  </h6>
+
+  <div class="row">
+    {%for product in products_last%}
+    <div class="col-6 col-lg-3 mb-3">
+        <a href="{% url 'shop:product_details' product.product_id product.slug %}">
+      <div class="card">
+        <div
+          style="background: url('{{product.product_image_link}}');height:180px;background-position: center center;background-repeat: no-repeat;background-size: 80%;">
+        </div>
+        <div class="card-body">
+            {% if product.product_category %}
+          <small class="card-category">{{product.product_category}}</small>
+          {% else %}
+          {% endif %}
+          <h5 class="card-title mb-0"><a
+              href="{% url 'shop:product_details' product.product_id product.slug %}">{{product.product_name|truncatechars:40}}</a>
+          </h5>
+          <ul class="list-unstyled">
+            {% if product.product_available == 'in stock'%}
+            <li><small class="card-stock">Raktáron: elérhető</small></li>
+            {%else%}
+            <li><small class="card-stock">Raktáron: {{product.product_available}}</small></li>
+            {%endif%}
+            {% if product.product_sale_price%}
+            <li>
+              <span class="card-sale-price"><small>{{product.product_price}} Ft</small></span>
+              <span class="card-price">{{product.product_sale_price}} Ft</span></li>
+            {%else%}
+            <li><span class="card-price">{{product.product_price}} Ft</span></li>
+            {%endif%}
+          </ul>
+        </div>
+      </div>
+      </a>
+    </div>
+    {%endfor%}
+  </div>
+
+
+
+  <h6 class="pb-2 my-4 border-bottom font-weight-bold">
+    Legnépszerűbb termékek:
+  </h6>
+
+  <div class="row">
+    {%for product in products_most%}
+    <div class="col-6 col-lg-3 mb-3">
+        <a href="{% url 'shop:product_details' product.product_id product.slug %}">
+      <div class="card">
+        <div
+          style="background: url('{{product.product_image_link}}');height:180px;background-position: center center;background-repeat: no-repeat;background-size: 80%;">
+        </div>
+        <div class="card-body">
+           {% if product.product_category %}
+          <small class="card-category">{{product.product_category}}</small>
+          {% else %}
+          {% endif %}
+          <h5 class="card-title mb-0"><a
+              href="{% url 'shop:product_details' product.product_id product.slug %}">{{product.product_name|truncatechars:40}}</a>
+          </h5>
+          <ul class="list-unstyled">
+            {% if product.product_available == 'in stock'%}
+            <li><small class="card-stock">Raktáron: elérhető</small></li>
+            {%else%}
+            <li><small class="card-stock">Raktáron: {{product.product_available}}</small></li>
+            {%endif%}
+            {% if product.product_sale_price%}
+            <li>
+              <span class="card-sale-price"><small>{{product.product_price}} Ft</small></span>
+              <span class="card-price">{{product.product_sale_price}} Ft</span></li>
+            {%else%}
+            <li><span class="card-price">{{product.product_price}} Ft</span></li>
+            {%endif%}
+          </ul>
+        </div>
+      </div>
+      </a>
+    </div>
+    {%endfor%}
+  </div>
+
+
+
+  <h6 class="pb-2 my-4 border-bottom font-weight-bold">
+    Aktuális ajánlatok:
+  </h6>
+
+  <div class="row">
+    {%for product in products_offer%}
+    <div class="col-6 col-lg-3 mb-3">
+        <a href="{% url 'shop:product_details' product.product_id product.slug %}">
+      <div class="card">
+        <div
+          style="background: url('{{product.product_image_link}}');height:180px;background-position: center center;background-repeat: no-repeat;background-size: 80%;">
+        </div>
+        <div class="card-body">
+           {% if product.product_category %}
+          <small class="card-category">{{product.product_category}}</small>
+          {% else %}
+          {% endif %}
+          <h5 class="card-title mb-0"><a
+              href="{% url 'shop:product_details' product.product_id product.slug %}">{{product.product_name|truncatechars:40}}</a>
+          </h5>
+          <ul class="list-unstyled">
+            {% if product.product_available == 'in stock'%}
+            <li><small class="card-stock">Raktáron: elérhető</small></li>
+            {%else%}
+            <li><small class="card-stock">Raktáron: {{product.product_available}}</small></li>
+            {%endif%}
+            {% if product.product_sale_price%}
+            <li>
+              <span class="card-sale-price"><small>{{product.product_price}} Ft</small></span>
+              <span class="card-price">{{product.product_sale_price}} Ft</span></li>
+            {%else%}
+            <li><span class="card-price">{{product.product_price}} Ft</span></li>
+            {%endif%}
+          </ul>
+        </div>
+      </div>
+      </a>
+    </div>
+    {%endfor%}
+  </div>
+
+
+
+
+
+  <h6 class="pb-2 my-4 border-bottom font-weight-bold">
+    Akciók:
+  </h6>
+
+  <div class="row">
+    {%for product in products_discount%}
+    <div class="col-6 col-lg-3 mb-3">
+        <a href="{% url 'shop:product_details' product.product_id product.slug %}">
+      <div class="card">
+        <div
+          style="background: url('{{product.product_image_link}}');height:180px;background-position: center center;background-repeat: no-repeat;background-size: 80%;">
+        </div>
+        <div class="card-body">
+           {% if product.product_category %}
+          <small class="card-category">{{product.product_category}}</small>
+          {% else %}
+          {% endif %}
+          <h5 class="card-title mb-0"><a
+              href="{% url 'shop:product_details' product.product_id product.slug %}">{{product.product_name|truncatechars:40}}</a>
+          </h5>
+          <ul class="list-unstyled">
+            {% if product.product_available == 'in stock'%}
+            <li><small class="card-stock">Raktáron: elérhető</small></li>
+            {%else%}
+            <li><small class="card-stock">Raktáron: {{product.product_available}}</small></li>
+            {%endif%}
+            {% if product.product_sale_price%}
+            <li>
+              <span class="card-sale-price"><small>{{product.product_price}} Ft</small></span>
+              <span class="card-price">{{product.product_sale_price}} Ft</span></li>
+            {%else%}
+            <li><span class="card-price">{{product.product_price}} Ft</span></li>
+            {%endif%}
+          </ul>
+        </div>
+      </div>
+      </a>
+    </div>
+    {%endfor%}
+  </div>
+</div>
+
+
+
+{% endblock %}

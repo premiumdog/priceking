@@ -1,0 +1,180 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block meta %}
+<!-- This site is optimized with the premiumDog SEO -->
+<link rel="canonical" href="{{ request.build_absolute_uri }}" />
+<link rel="publisher" href="premiumDog.hu"/>
+<meta property="og:locale" content="hu_HU" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="{{article.title}} - premiumDog.hu" />
+<meta property="og:description" content="{{article.body|striptags|safe}}" />
+<meta property="og:url" content="{{ request.build_absolute_uri }}" />
+<meta property="og:site_name" content="premiumDog.hu" />
+<meta property="article:publisher" content="premiumDog.hu" />
+<meta property="article:section" content="Blog" />
+<meta property="article:published_time" content="{{article.created_at}}" />
+<meta property="article:modified_time" content="{{article.updated_at}}" />
+<meta property="og:updated_time" content="{{article.updated_at}}" />
+<meta property="og:image" content="/media/{{article.thumb}}" />
+<meta property="og:image:secure_url" content="/media/{{article.thumb}}" />
+<meta property="og:image:alt" content="{{article.title}}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:description" content="{{article.body|striptags|safe}}" />
+<meta name="twitter:title" content="{{article.title}} - premiumDog.hu" />
+<meta name="twitter:site" content="@premiumDog" />
+<meta name="twitter:image" content="/media/{{article.thumb}}" />
+<meta name="twitter:creator" content="@pappgab" />
+
+<!-- / Yoast SEO Premium plugin. -->
+{% endblock %}
+
+{% block json-ld %}
+
+<script type="application/ld+json">
+{ "@context": "https://schema.org",
+ "@type": "Article",
+ "headline": "{{article.title}}",
+ "alternativeHeadline": "premiumDog.hu",
+ "image": "/media/{{article.thumb}}",
+ "author": "premiumDog.hu",
+ "award": "Best article ever written",
+ "editor": "premiumDog.hu",
+ "genre": "{{article.category}}",
+ "keywords": "{{article.keywords}}",
+"publisher": {
+    "@type": "Organization",
+    "name": "premiumDog.hu",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/static/favicon/apple-icon-180x180.png"
+    }
+  },
+ "url": "https://premiumdog.hu",
+   "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://premiumdog.hu/blog"
+  },
+ "datePublished": "{{article.created_at}}",
+ "dateCreated": "{{article.created_at}}",
+ "dateModified": "{{article.updated_at}}",
+ "description": "{{article.body|striptags|safe|truncatechars:160}}",
+ "articleBody": "{{article.body}}"
+ }
+</script>
+{% endblock %}
+
+{% block title %}
+{% if article %}{{ article.title }}{% else %}Bejegyzések{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<aside class="col-lg-3 blog-sidebar order-1 order-lg-0">
+
+  <div class="sidebar p-4 bg-light mb-3">
+    <h6 class="sidebar-title">Termék kategóriák</h6>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="{% url 'shop:category_list' %}">Összes kategória</a>
+      {% for category in category_list%}
+      <a class="nav-link" href="{{ category.get_absolute_url }}">{{category.name}}</a>
+      {% endfor%}
+    </nav>
+  </div>
+
+
+
+  <div class="sidebar p-4 mb-3 bg-light my-3">
+    <h6 class="sidebar-title">Blöki Blog</h6>
+    <nav class="nav flex-column">
+        <a class="nav-link" href="{% url 'article:article_list' %}">Összes bejegyzés</a>
+      <a class="nav-link" href="{% url 'article:article_list_latest' %}">Legújabb bejegyzések</a>
+    </nav>
+  </div>
+
+</aside><!-- /.blog-sidebar -->
+
+<div class="col-lg-9 blog-main order-0 order-lg-1">
+
+  <div class="sidebar p-0 bg-light mb-3 border-left-orange">
+    <nav class="nav main-nav">
+      <a class="nav-link" href="/">Kezdőlap</a>
+      <a class="nav-link" href="{% url 'shop:product_latest' %}">Újdonságok</a>
+      <a class="nav-link" href="{% url 'shop:product_most_viewed' %}">Legjobb minőségű termékek</a>
+      <a class="nav-link" href="{% url 'shop:product_offer' %}">Aktuális ajánlatok</a>
+      <a class="nav-link" href="{% url 'shop:product_discount' %}">% Akció</a>
+    </nav>
+  </div>
+
+  <div class="home-header">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Kezdőlap</a></li>
+        <li class="breadcrumb-item"><a href="{% url 'article:article_list' %}">Összes bejegyzés</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ article.title }}</li>
+
+      </ol>
+    </nav>
+  </div>
+
+  <div class="row">
+    <div class="col-12 col-lg-5">
+      <img src="/media/{{article.thumb}}" class="w-100" alt="">
+    </div>
+    <div class="col-12 col-lg-7 mt-2">
+      <h1 class="h4">{{ article.title }}</h1>
+      <ul class="list-unstyled">
+          <li><strong>Kategória: </strong>{{ article.category }}</li>
+      </ul>
+      <div class="fb-like mb-2" data-href="{{ request.build_absolute_uri }}" data-width="" data-layout="standard" data-action="like" data-size="small" data-share="false"></div>
+      <!-- FB share button code -->
+  <div class="fb-share-button"
+    data-href="{{ request.build_absolute_uri }}"
+    data-layout="button_count">
+  </div>
+  <div class="fb-save" data-uri="{{ request.build_absolute_uri }}" data-size="small"></div>
+  </div>
+  </div>
+
+  <h6 class="pb-2 my-4 border-bottom font-weight-bold">
+    Tartalom:
+  </h6>
+
+  <p>{{ article.body|safe }}</p>
+
+
+
+
+<div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="5" data-width="100%"></div>
+
+
+
+
+
+
+  <h6 class="pb-2 my-4 border-bottom font-weight-bold">
+    További bejegyzések:
+  </h6>
+
+   <div class="row">
+    {%for article in articles%}
+    <div class="col-6 col-lg-4 mb-3">
+      <div class="card">
+        <div
+          style="background: url('/media/{{article.thumb}}');height:180px;background-position: center center;background-repeat: no-repeat;background-size: 50%;">
+        </div>
+        <div class="card-body">
+          <small class="card-category">{{article.category}}</small>
+          <h5 class="card-title mb-0"><a
+              href="{% url 'article:article_detail' article.slug %}">{{article.title|truncatechars:80}}</a>
+          </h5>
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+  </div>
+</div>
+
+
+
+{% endblock %}

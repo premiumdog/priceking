@@ -1,0 +1,89 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block title %}
+{% if category %}{{ category.name }}{% else %}Saját termékeim{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<aside class="col-lg-3 blog-sidebar order-1 order-lg-0">
+
+  <div class="sidebar p-4 bg-light mb-3">
+    <h6 class="sidebar-title">Vezérlőpult</h6>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="{% url 'accounts:profile_credit' %}">Kreditfeltöltés</a>
+      <a class="nav-link" href="{% url 'accounts:profile' %}">Fiókom</a>
+      <a class="nav-link" href="{% url 'accounts:profile_edit' %}">Fiókadatok módosítása</a>
+      <a class="nav-link active" href="{% url 'accounts:profile_product' %}">Saját termékeim</a>
+      <a class="nav-link" href="{% url 'accounts:profile_affiliate' %}">Statisztika</a>
+    </nav>
+  </div>
+
+  <div class="sidebar p-4 bg-light mb-3 text-center">
+    <a href="{% url 'accounts:update_product_list' %}" class="btn btn-sm btn-block btn-secondary">Termékek frissítése <i class="fas fa-sync"></i></a>
+  </div>
+
+
+</aside><!-- /.blog-sidebar -->
+
+<div class="col-lg-9 blog-main order-0 order-lg-1">
+
+  <div class="sidebar p-0 bg-light mb-3 border-left-orange">
+    <nav class="nav main-nav">
+      <a class="nav-link" href="/">Kezdőlap</a>
+      <a class="nav-link" href="{% url 'shop:product_latest' %}">Újdonságok</a>
+      <a class="nav-link" href="{% url 'shop:product_most_viewed' %}">Legjobb minőségű termékek</a>
+      <a class="nav-link" href="{% url 'shop:product_offer' %}">Aktuális ajánlatok</a>
+      <a class="nav-link" href="{% url 'shop:product_discount' %}">% Akció</a>
+    </nav>
+  </div>
+
+  <div class="home-header">
+    <div class="row">
+      <div class="col-6">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Kezdőlap</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Saját termékeim</li>
+          </ol>
+        </nav>
+      </div>
+      <div class="col-6 text-right mb-1"><small>Összes találat: {{products | length}} db</small></div>
+    </div>
+  </div>
+
+  <div class="row">
+    {% for product in products%}
+    <div class="col-6 col-lg-3 mb-3">
+      <div class="card ">
+        <div
+          style="background: url('{{product.product_image_link}}');height:180px;background-position: center center;background-repeat: no-repeat;background-size: 50%;">
+        </div>
+        <div class="card-body">
+          <small class="card-category">{{product.product_category}}</small>
+          <h5 class="card-title mb-0"><a
+              href="{% url 'accounts:profile_product_details' product.product_id product.slug %}">{{product.product_name}}</a>
+          </h5>
+          <ul class="list-unstyled">
+            {% if product.product_available == 'in stock'%}
+            <li><small class="card-stock">Raktáron: elérhető</small></li>
+            {%else%}
+            <li><small class="card-stock">Raktáron: {{product.product_available}}</small></li>
+            {%endif%}
+            {% if product.product_sale_price%}
+            <li>
+              <span class="card-sale-price"><small>{{product.product_price}} Ft</small></span>
+              <span class="card-price">{{product.product_sale_price}} Ft</span></li>
+            {%else%}
+            <li><span class="card-price">{{product.product_price}} Ft</span></li>
+            {%endif%}
+          </ul>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

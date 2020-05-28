@@ -1,0 +1,80 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block title %}
+{% if category %}{{ category.name }}{% else %}Legújabb bejegyzések{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<aside class="col-lg-3 blog-sidebar order-1 order-lg-0">
+
+  <div class="sidebar p-4 bg-light mb-3">
+    <h6 class="sidebar-title">Termék kategóriák</h6>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="{% url 'shop:category_list' %}">Összes kategória</a>
+      {% for category in category_list%}
+      <a class="nav-link" href="{{ category.get_absolute_url }}">{{category.name}}</a>
+      {% endfor%}
+    </nav>
+  </div>
+
+
+
+  <div class="sidebar p-4 mb-3 bg-light my-3">
+    <h6 class="sidebar-title">Blöki Blog</h6>
+    <nav class="nav flex-column">
+        <a class="nav-link" href="{% url 'article:article_list' %}">Összes bejegyzések</a>
+      <a class="nav-link active" href="{% url 'article:article_list_latest' %}">Legújabb bejegyzések</a>
+    </nav>
+  </div>
+
+</aside><!-- /.blog-sidebar -->
+
+<div class="col-lg-9 blog-main order-0 order-lg-1">
+
+  <div class="sidebar p-0 bg-light mb-3 border-left-orange">
+    <nav class="nav main-nav">
+      <a class="nav-link" href="/">Kezdőlap</a>
+      <a class="nav-link" href="{% url 'shop:product_latest' %}">Újdonságok</a>
+      <a class="nav-link active" href="{% url 'shop:product_most_viewed' %}">Legjobb minőségű termékek</a>
+      <a class="nav-link" href="{% url 'shop:product_offer' %}">Aktuális ajánlatok</a>
+      <a class="nav-link" href="{% url 'shop:product_discount' %}">% Akció</a>
+    </nav>
+  </div>
+
+  <div class="home-header">
+    <div class="row">
+      <div class="col-6">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/">Kezdőlap</a></li>
+            <li class="breadcrumb-item active" aria-current="page">Legújabb bejegyzések</li>
+
+          </ol>
+        </nav>
+      </div>
+      <div class="col-6 text-right mb-1"><small>Összes találat: {{articles | length}} db</small></div>
+    </div>
+  </div>
+
+  <div class="row">
+    {%for article in articles%}
+    <div class="col-6 col-lg-4 mb-3">
+      <div class="card">
+        <div
+          style="background: url('/media/{{article.thumb}}');height:180px;background-position: center center;background-repeat: no-repeat;background-size: 50%;">
+        </div>
+        <div class="card-body">
+          <small class="card-category">{{article.category}}</small>
+          <h5 class="card-title mb-0"><a
+              href="{% url 'article:article_detail' article.slug %}">{{article.title|truncatechars:80}}</a>
+          </h5>
+        </div>
+      </div>
+    </div>
+    {%endfor%}
+  </div>
+</div>
+
+  {% endblock %}

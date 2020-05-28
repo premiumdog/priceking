@@ -1,0 +1,42 @@
+{% extends "../base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+{% if category %}{{ category.name }}{% else %}Bejelentkezés{% endif %}
+{% endblock %}
+
+{% block content %}
+
+
+
+<div class="col-12 blog-main order-0 order-lg-1">
+
+
+
+  <div class="home-header">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Kezdőlap</a></li>
+
+        <li class="breadcrumb-item active" aria-current="page">Bejelentkezés</li>
+
+      </ol>
+    </nav>
+  </div>
+
+  <div class="row px-3">
+    <div class="col-12 bg-light p-4">
+      <h1 class="h5">Bejelentkezés</h1>
+      <p><a href="{% url 'accounts:register' %}" class="btn btn-secondary">Új webáruház a premiumDog-on?</a></p>
+      <hr>
+      <form action="" method="post">
+        {{ form|crispy }}
+        {% csrf_token %}
+        <p><input type="submit" class="btn btn-secondary btn-block" value="Bejelentkezés"></p>
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

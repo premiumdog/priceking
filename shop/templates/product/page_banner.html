@@ -1,0 +1,83 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block title %}
+{% if category %}{{ category.name }}{% else %}Kategóriák{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<aside class="col-lg-3 blog-sidebar">
+
+    <div class="sidebar p-4 bg-light mb-3">
+        <h6 class="sidebar-title">Üzleti partner program</h6>
+        <nav class="nav flex-column">
+            <a class="nav-link" href="">premiumDog.hu Business</a>
+            <a class="nav-link" href="">Kiknek szól ez a partnerprogram?</a>
+            <a class="nav-link" href="">Miért a premiumDog.hu? Vagy hogyan segítünk Önnek az ONLINE értékesítésben?</a>
+            <a class="nav-link" href="">További 7 előnye</a>
+            <a class="nav-link" href="">Hogyan tudja kihasználni a premiumDog.hu partnerprogramban rejlő lehetőségeket?</a>
+            <a class="nav-link" href="">Áraink</a>
+            <a class="nav-link" href="">Extra profitnövelő szolgáltatások</a>
+
+        </nav>
+    </div>
+
+    <div class="p-0">
+        <img src="oldalbanner.jpg" class="w-100" alt="">
+    </div>
+
+  <div class="p-4 mb-3 bg-light my-3">
+    <h6 class="sidebar-title">Bejegyzések</h6>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="{% url 'shop:category_list' %}">Összes bejegyzés</a>
+      <a class="nav-link" href="{% url 'shop:category_list' %}">Legutolsó bejegyzések</a>
+    </nav>
+  </div>
+
+
+
+</aside><!-- /.blog-sidebar -->
+
+<div class="col-lg-9 blog-main">
+
+    <div class="sidebar p-0 bg-light mb-3 border-left-orange">
+        <nav class="nav main-nav">
+          <a class="nav-link" href="/">Kezdőlap</a>
+          <a class="nav-link" href="{% url 'shop:product_latest' %}">Újdonságok</a>
+          <a class="nav-link" href="{% url 'shop:product_most_viewed' %}">Legnépszerűbb termékek</a>
+          <a class="nav-link" href="{% url 'shop:product_offer' %}">Aktuális ajánlatok</a>
+          <a class="nav-link" href="{% url 'shop:product_discount' %}">% Akció</a>
+        </nav>
+      </div>
+
+    <div class="home-header">
+        <div class="row">
+            <div class="col-12">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="/">Kezdőlap</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Cégeknek</li>
+
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="row bg-light px-3 mb-3">
+        <div class="col-12 mb-3">
+                sdfhtr
+        </div>
+    </div>
+
+    <div class="row bg-light mb-3">
+        <div class="col-12 mb-3">
+                sdfhtr
+        </div>
+    </div>
+
+
+    {% endblock %}

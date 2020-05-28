@@ -1,0 +1,255 @@
+{% extends "../base.html" %}
+{% load static %}
+{% block title %}
+Adatvédelmi nyilatkozat
+{% endblock %}
+{% block content %}
+<aside class="col-lg-3 blog-sidebar">
+   <div class="sidebar p-4 bg-light mb-3">
+      <h6 class="sidebar-title">Nyilatkozatok</h6>
+      <nav class="nav flex-column">
+         <a class="nav-link" href="{% url 'shop:page_aszf' %}">Általános szerződési feltételek</a>
+         <a class="nav-link active" href="{% url 'shop:page_gdpr' %}">Adatvédelmi nyilatkozat</a>
+      </nav>
+   </div>
+
+  <div class="sidebar p-4 mb-3 bg-light my-3">
+    <h6 class="sidebar-title">Blöki Blog</h6>
+    <nav class="nav flex-column">
+        <a class="nav-link" href="{% url 'article:article_list' %}">Összes bejegyzés</a>
+      <a class="nav-link" href="{% url 'article:article_list_latest' %}">Legújabb bejegyzések</a>
+    </nav>
+  </div>
+</aside>
+<!-- /.blog-sidebar -->
+<div class="col-lg-9 blog-main">
+<div class="sidebar p-0 bg-light mb-3 border-left-orange">
+   <nav class="nav main-nav">
+      <a class="nav-link" href="/">Kezdőlap</a>
+      <a class="nav-link" href="{% url 'shop:product_latest' %}">Újdonságok</a>
+      <a class="nav-link" href="{% url 'shop:product_most_viewed' %}">Legnépszerűbb termékek</a>
+      <a class="nav-link" href="{% url 'shop:product_offer' %}">Aktuális ajánlatok</a>
+      <a class="nav-link" href="{% url 'shop:product_discount' %}">% Akció</a>
+   </nav>
+</div>
+<div class="home-header">
+   <div class="row">
+      <div class="col-12">
+         <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+               <li class="breadcrumb-item"><a href="/">Kezdőlap</a></li>
+               <li class="breadcrumb-item active" aria-current="page">Adatvédelmi nyilatkozat</li>
+            </ol>
+         </nav>
+      </div>
+   </div>
+</div>
+<div class="row px-3 mb-3">
+   <div class="col-12 bg-light p-3">
+      <h1 class="h5">Adatvédelmi nyilatkozat</h1>
+      <hr>
+      <p><strong>Röviden</strong></p>
+      <ul>
+         <li>Személyes adatokat csak a törvényeknek megfelelően gyűjtünk és kezelünk.</li>
+         <li>DM levelet csak külön hozzájárulás esetén küldünk. Rendszerüzenetet anélkül is küldhetünk.</li>
+         <li>Az adatokat a lehető legbiztonságosabban tároljuk.</li>
+         <li>Harmadik félnek személyes adatokat csak hozzájárulással adunk át.</li>
+         <li>Bárkinek felvilágosítást adunk a róla tárolt adatokról, ha ezt írásban kéri az <a href="mailto:info@premiumdog.hu">info@premiumdog.hu</a> címen.</li>
+         <li>A személyes adatok törlését az info@premiumdog.hu&nbsp; címen lehet kérni</li>
+      </ul>
+      <p><strong>Bevezetés</strong></p>
+      <p>Premium Web Media Kft. (székhely: 9700. Szombathely, Jázmin utca 7/B adószám: 27330953-2-18; cégjegyzékszám: 18-09-114230) (a továbbiakban: Szolgáltató, adatkezelő) alá veti magát a következő tájékoztatónak. Az információs önrendelkezési jogról és az információszabadságról szóló 2011. évi CXII. törvény 20. § (1) kimondja, hogy az érintettel (jelen esetben a weboldal-használóval, a továbbiakban: felhasználó) az adatkezelés megkezdése előtt közölni kell, hogy az adatkezelés hozzájáruláson alapul vagy kötelező.</p>
+      <p>Az érintettet az adatkezelés megkezdése előtt egyértelműen és részletesen tájékoztatni kell az adatai kezelésével kapcsolatos minden tényről, így különösen az adatkezelés céljáról és jogalapjáról, az adatkezelésre és az adatfeldolgozásra jogosult személyéről, az adatkezelés időtartamáról.</p>
+      <p>Tájékoztatni kell az érintettet az Info tv. 6. § (1) bekezdése alapján arról is, hogy személyes adat kezelhető akkor is, ha az érintett hozzájárulásának beszerzése lehetetlen vagy aránytalan költséggel járna, és a személyes adat kezelése</p>
+      <p>• az adatkezelőre vonatkozó jogi kötelezettség teljesítése céljából szükséges, vagy</p>
+      <p>• az adatkezelő vagy harmadik személy jogos érdekének érvényesítése céljából szükséges, és ezen érdek érvényesítése a személyes adatok védelméhez fűződő jog korlátozásával arányban áll.</p>
+      <p>A tájékoztatásnak ki kell terjednie az érintett adatkezeléssel kapcsolatos jogaira és jogorvoslati lehetőségeire is.</p>
+      <p>Ha az érintettek személyes tájékoztatása lehetetlen vagy aránytalan költséggel járna (mint például jelen esetben egy weboldalon), a tájékoztatás megtörténhet az alábbi információk nyilvánosságra hozatalával is:</p>
+      <p>a) az adatgyűjtés ténye,</p>
+      <p>b) az érintettek köre,</p>
+      <p>c) az adatgyűjtés célja,</p>
+      <p>d) az adatkezelés időtartama,</p>
+      <p>e) az adatok megismerésére jogosult lehetséges adatkezelők személye,</p>
+      <p>f) az érintettek adatkezeléssel kapcsolatos jogainak és jogorvoslati lehetőségeinek ismertetése, valamint</p>
+      <p>g) ha az adatkezelés adatvédelmi nyilvántartásba vételének van helye, az adatkezelés nyilvántartási száma.</p>
+      <p>Jelen adatkezelési tájékoztató az alábbi weboldal adatkezelését szabályozza: https://premiumdog.hu és a fenti tartalmi előíráson alapul. A tájékoztató elérhető az alábbi oldalról: http://premiumdog.hu/adatvedelmi-nyilatkozat</p>
+      <p>A tájékoztató módosításai a fenti címen történő közzététellel lépnek hatályba. A tájékoztató egyes fejezetcímei mögött megjelenítjük a jogszabályi hivatkozást is.</p>
+      <p><strong>Értelmező fogalmak (3.§)</strong></p>
+      <p>1. érintett/Felhasználó: bármely meghatározott, személyes adat alapján azonosított vagy – közvetlenül vagy közvetve – azonosítható természetes személy;</p>
+      <p>2. személyes adat: az érintettel kapcsolatba hozható adat – különösen az érintett neve, azonosító jele, valamint egy vagy több fizikai, fiziológiai, mentális, gazdasági, kulturális vagy szociális azonosságára jellemző ismeret -, valamint az adatból levonható, az érintettre vonatkozó következtetés;</p>
+      <p>3. különleges adat:</p>
+      <p>a) a faji eredetre, a nemzetiséghez tartozásra, a politikai véleményre vagy pártállásra, a vallásos vagy más világnézeti meggyőződésre, az érdek-képviseleti szervezeti tagságra, a szexuális életre vonatkozó személyes adat,</p>
+      <p>b) az egészségi állapotra, a kóros szenvedélyre vonatkozó személyes adat, valamint a bűnügyi személyes adat;</p>
+      <p>4. hozzájárulás: az érintett akaratának önkéntes és határozott kinyilvánítása, amely megfelelő tájékoztatáson alapul, és amellyel félreérthetetlen beleegyezését adja a rá vonatkozó személyes adatok – teljes körű vagy egyes műveletekre kiterjedő – kezeléséhez;</p>
+      <p>5. tiltakozás: az érintett nyilatkozata, amellyel személyes adatainak kezelését kifogásolja, és az adatkezelés megszüntetését, illetve a kezelt adatok törlését kéri;</p>
+      <p>6. adatkezelő: az a természetes vagy jogi személy, illetve jogi személyiséggel nem rendelkező szervezet, aki vagy amely önállóan vagy másokkal együtt az adatok kezelésének célját meghatározza, az adatkezelésre (beleértve a felhasznált eszközt) vonatkozó döntéseket meghozza és végrehajtja, vagy az általa megbízott adatfeldolgozóval végrehajtatja;</p>
+      <p>7. adatkezelés: az alkalmazott eljárástól függetlenül az adatokon végzett bármely művelet vagy a műveletek összessége, így különösen gyűjtése, felvétele, rögzítése, rendszerezése, tárolása, megváltoztatása, felhasználása, lekérdezése, továbbítása, nyilvánosságra hozatala, összehangolása vagy összekapcsolása, zárolása, törlése és megsemmisítése, valamint az adatok további felhasználásának megakadályozása, fénykép-, hang- vagy képfelvétel készítése, valamint a személy azonosítására alkalmas fizikai jellemzők (pl. ujj- vagy tenyérnyomat, DNS-minta, íriszkép) rögzítése;</p>
+      <p>8. adattovábbítás: az adat meghatározott harmadik személy számára történő hozzáférhetővé tétele;</p>
+      <p>9. nyilvánosságra hozatal: az adat bárki számára történő hozzáférhetővé tétele;</p>
+      <p>10. adattörlés: az adatok felismerhetetlenné tétele oly módon, hogy a helyreállításuk többé nem lehetséges;</p>
+      <p>11. adatmegjelölés: az adat azonosító jelzéssel ellátása annak megkülönböztetése céljából;</p>
+      <p>12. adatzárolás: az adat azonosító jelzéssel ellátása további kezelésének végleges vagy meghatározott időre történő korlátozása céljából;</p>
+      <p>13. adatmegsemmisítés: az adatokat tartalmazó adathordozó teljes fizikai megsemmisítése;</p>
+      <p>14. adatfeldolgozás: az adatkezelési műveletekhez kapcsolódó technikai feladatok elvégzése, függetlenül a műveletek végrehajtásához alkalmazott módszertől és eszköztől, valamint az alkalmazás helyétől, feltéve hogy a technikai feladatot az adatokon végzik;</p>
+      <p>15. adatfeldolgozó: az a természetes vagy jogi személy, illetve jogi személyiséggel nem rendelkező szervezet, aki vagy amely az adatkezelővel kötött szerződése alapján – beleértve a jogszabály rendelkezése alapján történő szerződéskötést is – adatok feldolgozását végzi;</p>
+      <p>16. adatfelelős: az a közfeladatot ellátó szerv, amely az elektronikus úton kötelezően közzéteendő közérdekű adatot előállította, illetve amelynek a működése során ez az adat keletkezett;</p>
+      <p>17. adatközlő: az a közfeladatot ellátó szerv, amely – ha az adatfelelős nem maga teszi közzé az adatot – az adatfelelős által hozzá eljuttatott adatait honlapon közzéteszi;</p>
+      <p>18. adatállomány: az egy nyilvántartásban kezelt adatok összessége;</p>
+      <p>19. harmadik személy: olyan természetes vagy jogi személy, illetve jogi személyiséggel nem rendelkező szervezet, aki vagy amely nem azonos az érintettel, az adatkezelővel vagy az adatfeldolgozóval;</p>
+      <p><strong>Az adatkezelés jogalapja (5.-6.§)</strong></p>
+      <p>1. Személyes adat akkor kezelhető, ha</p>
+      <p>• ahhoz az érintett hozzájárul, vagy</p>
+      <p>• azt törvény vagy – törvény felhatalmazása alapján, az abban meghatározott körben – helyi önkormányzat rendelete közérdeken alapuló célból elrendeli.</p>
+      <p>2. Személyes adat kezelhető akkor is, ha az érintett hozzájárulásának beszerzése lehetetlen vagy aránytalan költséggel járna, és a személyes adat kezelése</p>
+      <p>a) az adatkezelőre vonatkozó jogi kötelezettség teljesítése céljából szükséges, vagy</p>
+      <p>b) az adatkezelő vagy harmadik személy jogos érdekének érvényesítése céljából szükséges, és ezen érdek érvényesítése a személyes adatok védelméhez fűződő jog korlátozásával arányban áll.</p>
+      <p>3. Ha az érintett cselekvőképtelensége folytán vagy más elháríthatatlan okból nem képes hozzájárulását megadni, akkor a saját vagy más személy létfontosságú érdekeinek védelméhez, valamint a személyek életét, testi épségét vagy javait fenyegető közvetlen veszély elhárításához vagy megelőzéséhez szükséges mértékben a hozzájárulás akadályainak fennállása alatt az érintett személyes adatai kezelhetőek.</p>
+      <p>4. A 16. életévét betöltött kiskorú érintett hozzájárulását tartalmazó jognyilatkozatának érvényességéhez törvényes képviselőjének beleegyezése vagy utólagos jóváhagyása nem szükséges.</p>
+      <p>5. Ha a hozzájáruláson alapuló adatkezelés célja az adatkezelővel írásban kötött szerződés végrehajtása, a szerződésnek tartalmaznia kell minden olyan információt, amelyet a személyes adatok kezelése az érintettnek ismernie kell, így különösen a kezelendő adatok meghatározását, az adatkezelés időtartamát, a felhasználás célját, az adatok továbbításának tényét, címzettjeit, adatfeldolgozó igénybevételének tényét. A szerződésnek félreérthetetlen módon tartalmaznia kell, hogy az érintett aláírásával hozzájárul adatainak a szerződésben meghatározottak szerinti kezeléséhez.</p>
+      <p>6. Ha a személyes adat felvételére az érintett hozzájárulásával került sor, az adatkezelő a felvett adatokat törvény eltérő rendelkezésének hiányában</p>
+      <p>• a rá vonatkozó jogi kötelezettség teljesítése céljából, vagy</p>
+      <p>• az adatkezelő vagy harmadik személy jogos érdekének érvényesítése céljából, ha ezen érdek érvényesítése a személyes adatok védelméhez fűződő jog korlátozásával arányban áll</p>
+      <p>Az adatkezelés célhoz kötöttsége (4.§ [1]-[2])</p>
+      <p>1. Személyes adat kizárólag meghatározott célból, jog gyakorlása és kötelezettség teljesítése érdekében kezelhető. Az adatkezelésnek minden szakaszában meg kell felelnie az adatkezelés céljának, az adatok felvételének és kezelésének tisztességesnek és törvényesnek kell lennie.</p>
+      <p>2. Csak olyan személyes adat kezelhető, amely az adatkezelés céljának megvalósulásához elengedhetetlen, a cél elérésére alkalmas. A személyes adat csak a cél megvalósulásához szükséges mértékben és ideig kezelhető.</p>
+      <p>Az adatkezelés egyéb elvei (4.§ [3]-[4])</p>
+      <p>A személyes adat az adatkezelés során mindaddig megőrzi e minőségét, amíg kapcsolata az érintettel helyreállítható. Az érintettel akkor helyreállítható a kapcsolat, ha az adatkezelő rendelkezik azokkal a technikai feltételekkel, amelyek a helyreállításhoz szükségesek.</p>
+      <p>Az adatkezelés során biztosítani kell az adatok pontosságát, teljességét és – ha az adatkezelés céljára tekintettel szükséges – naprakészségét, valamint azt, hogy az érintettet csak az adatkezelés céljához szükséges ideig lehessen azonosítani.</p>
+      <p><strong>Funkcionális adatkezelés</strong></p>
+      <p>1. Az információs önrendelkezési jogról és az információszabadságról szóló 2011. évi CXII. törvény 20. § (1) bekezdése alapján, meg kell határozni a weboldal funkcionalitásának működése körében a következőket:</p>
+      <p>a) az adatgyűjtés ténye,</p>
+      <p>b) az érintettek köre,</p>
+      <p>c) az adatgyűjtés célja,</p>
+      <p>d) az adatkezelés időtartama,</p>
+      <p>e) az adatok megismerésére jogosult lehetséges adatkezelők személye,</p>
+      <p>f) az érintettek adatkezeléssel kapcsolatos jogainak ismertetése.</p>
+      <p>2. Az adatgyűjtés ténye, a kezelt adatok köre: Jelszó, vezeték- és keresztnév, cégnév, e-mail cím, telefonszám, számlázási cím, szállítási cím és név, megjegyzés, fizetendő összeg, a regisztráció időpontja, regisztrációkori IP cím.</p>
+      <p>3. Az érintettek köre: A weboldalon regisztrált valamennyi érintett.</p>
+      <p>4. Az adatgyűjtés célja: Szolgáltató a weboldal teljes körű használata, pl. szolgáltatás nyújtására irányuló szerződés létrehozása, tartalmának meghatározása, módosítása, teljesítésének figyelemmel kísérése, az abból származó díjak számlázása, valamint az azzal kapcsolatos követelések érvényesítése, továbbá hírlevél küldés nyújtásának céljából kezeli a Felhasználók személyes adatait.</p>
+      <p>5. Az adatkezelés időtartama, az adatok törlésének határideje: A regisztráció törlésével azonnal. Kivéve a számviteli bizonylatok esetében, hiszen a számvitelről szóló 2000. évi C. törvény 169. § (2) bekezdése alapján 8 évig meg kell őrizni ezeket az adatokat.</p>
+      <p>A könyvviteli elszámolást közvetlenül és közvetetten alátámasztó számviteli bizonylatot (ideértve a főkönyvi számlákat, az analitikus, illetve részletező nyilvántartásokat is), legalább 8 évig kell olvasható formában, a könyvelési feljegyzések hivatkozása alapján visszakereshető módon megőrizni.</p>
+      <p>6. Az adatok megismerésére jogosult lehetséges adatkezelők személye: A személyes adatokat az adatkezelő munkatársai kezelhetik, a fenti alapelvek tiszteletben tartásával.</p>
+      <p>7. Az érintettek adatkezeléssel kapcsolatos jogainak ismertetése: A következő adatok módosítását lehet elvégezni a weboldalakon: Vezeték- és keresztnév, jelszó, cégnév, e-mail cím, telefonszám, számlázási cím, szállítási cím és név. A személyes adatok törlését, vagy módosítását az alábbi módokon tudja érintett kezdeményezni:</p>
+      <p>– e-mail útján az info@premiumdog.hu e-mail címen.</p>
+      <p>8. Az adatkezelés jogalapja: a Felhasználó hozzájárulása, az Infotv. 5. § (1) bekezdése, illetve az elektronikus kereskedelmi szolgáltatások, valamint az információs társadalommal összefüggő szolgáltatások egyes kérdéseiről szóló 2001. évi CVIII. törvény (a továbbiakban: Elker tv.) 13/A. § (3) bekezdése:</p>
+      <p>A szolgáltató a szolgáltatás nyújtása céljából kezelheti azon személyes adatokat, amelyek a szolgáltatás nyújtásához technikailag elengedhetetlenül szükségesek. A szolgáltatónak az egyéb feltételek azonossága esetén úgy kell megválasztania és minden esetben oly módon kell üzemeltetnie az információs társadalommal összefüggő szolgáltatás nyújtása során alkalmazott eszközöket, hogy személyes adatok kezelésére csak akkor kerüljön sor, ha ez a szolgáltatás nyújtásához és az e törvényben meghatározott egyéb célok teljesüléséhez feltétlenül szükséges, azonban ebben az esetben is csak a szükséges mértékben és ideig.</p>
+      <p><strong>A funkcionális adatkezelésre vonatkozó alapelveink (Elker tv. 13/A.)</strong></p>
+      <p>1. A szolgáltató az információs társadalommal összefüggő szolgáltatás nyújtására irányuló szerződésből származó díjak számlázása céljából kezelheti az információs társadalommal összefüggő szolgáltatás igénybevételével kapcsolatos természetes személyazonosító adatokat, lakcímet, valamint a szolgáltatás igénybevételének időpontjára, időtartamára és helyére vonatkozó adatokat.</p>
+      <p>2. A szolgáltató a szolgáltatás nyújtása céljából kezelheti azon személyes adatokat, amelyek a szolgáltatás nyújtásához technikailag elengedhetetlenül szükségesek. A szolgáltatónak az egyéb feltételek azonossága esetén úgy kell megválasztania és minden esetben oly módon kell üzemeltetnie az információs társadalommal összefüggő szolgáltatás nyújtása során alkalmazott eszközöket, hogy személyes adatok kezelésére csak akkor kerüljön sor, ha ez a szolgáltatás nyújtásához és az Elker törvényben meghatározott egyéb célok teljesüléséhez feltétlenül szükséges, azonban ebben az esetben is csak a szükséges mértékben és ideig.</p>
+      <p>3. A szolgáltató a szolgáltatás igénybevételével kapcsolatos adatokat bármely egyéb célból – így különösen szolgáltatása hatékonyságának növelése, az igénybe vevőnek címzett elektronikus hirdetés vagy egyéb címzett tartalom eljuttatása, piackutatás céljából – csak az adatkezelési cél előzetes meghatározása mellett és az igénybe vevő hozzájárulása alapján kezelhet.</p>
+      <p>4. Az igénybe vevőnek az információs társadalommal összefüggő szolgáltatás igénybevételét megelőzően és a szolgáltatás igénybevétele során is folyamatosan biztosítani kell, hogy az adatkezelést megtilthassa.</p>
+      <p>5. A kezelt adatokat törölni kell a szerződés létrejöttének elmaradását, a szerződés megszűnését, valamint a számlázást követően. Az adatokat törölni kell, ha az adatkezelési cél megszűnt, vagy az igénybe vevő így rendelkezik. Törvény eltérő rendelkezése hiányában az adattörlést haladéktalanul el kell végezni.</p>
+      <p>6. A szolgáltatónak biztosítania kell, hogy az igénybe vevő az információs társadalommal összefüggő szolgáltatás igénybevétele előtt és az igénybevétel során bármikor megismerhesse, hogy a szolgáltató mely adatkezelési célokból mely adatfajtákat kezel, ideértve az igénybe vevővel közvetlenül kapcsolatba nem hozható adatok kezelését is.</p>
+      <p><strong>Cookie-k (sütik) kezelése</strong></p>
+      <p>1. Az információs önrendelkezési jogról és az információszabadságról szóló 2011. évi CXII. törvény 20. § (1) bekezdése alapján, meg kell határozni a weboldal cookie adatkezelése körében a következőket:</p>
+      <p>a) az adatgyűjtés ténye,</p>
+      <p>b) az érintettek köre,</p>
+      <p>c) az adatgyűjtés célja,</p>
+      <p>d) az adatkezelés időtartama,</p>
+      <p>e) az adatok megismerésére jogosult lehetséges adatkezelők személye,</p>
+      <p>f) az érintettek adatkezeléssel kapcsolatos jogainak ismertetése.</p>
+      <p>2. Weboldalra jellemző cookie-k az úgynevezett „jelszóval védett munkamenethez használt cookie”, „bevásárlókosárhoz szükséges cookie-k” és „biztonsági cookie-k”, melyek használatához nem szükséges előzetes hozzájárulást kérni az érintettektől.</p>
+      <p>3. Az adatkezelés ténye, a kezelt adatok köre: egyedi azonosítószám, dátumok, időpontok</p>
+      <p>4. Az érintettek köre: A weboldalt látogató valamennyi érintett.</p>
+      <p>5. Az adatkezelés célja: a felhasználók azonosítása, a „bevásárlókosár” nyilvántartására és a látogatók nyomon követése.</p>
+      <p>6. Az adatkezelés időtartama, az adatok törlésének határideje: Az adatkezelés időtartama a session cookie-k esetén a honlap látogatásának befejezéséig tart.</p>
+      <p>7. Az adatok megismerésére jogosult lehetséges adatkezelők személye: A személyes adatokat az adatkezelő munkatársai kezelhetik, a fenti alapelvek tiszteletben tartásával.</p>
+      <p>8. Az érintettek adatkezeléssel kapcsolatos jogainak ismertetése: Az érintettnek lehetőségük van a cookie-kat törölni a böngészők Eszközök/Beállítások menüjében általában az Adatvédelem menüpont beállításai alatt.</p>
+      <p>9. Az adatkezelés jogalapja: Az érintettől hozzájárulás nem szükséges, amennyiben a cookie-k használatának kizárólagos célja az elektronikus hírközlő hálózaton keresztül történő közlés továbbítás vagy arra az előfizető vagy felhasználó által kifejezetten kért, az információs társadalommal összefüggő szolgáltatás nyújtásához a szolgáltatónak feltétlenül szüksége van.</p>
+      <p>10. A weboldal látogatottsági adatait a Google Analytics szolgáltatás igénybevételével méri a Szolgáltató. A szolgáltatás használata során adatok kerülnek továbbításra. A továbbított adatok az érintett azonosítására nem alkalmasak. A Google adatvédelmi elveiről bővebb információ itt olvasható: http://www.google.hu/policies/privacy/ads/</p>
+      <p><strong>Hírlevél, DM tevékenység</strong></p>
+      <p>1. A gazdasági reklámtevékenység alapvető feltételeiről és egyes korlátairól szóló 2008. évi XLVIII. törvény 6. §-a értelmében Felhasználó előzetesen és kifejezetten hozzájárulhat ahhoz, hogy Szolgáltató reklámajánlataival, egyéb küldeményeivel a regisztrációkor megadott elérhetőségein megkeresse.</p>
+      <p>2. Továbbá Ügyfél a jelen tájékoztató rendelkezéseit szem előtt tartva hozzájárulhat ahhoz, hogy Szolgáltató a reklámajánlatok küldéséhez szükséges személyes adatait kezelje.</p>
+      <p>3. Szolgáltató nem küld kéretlen reklámüzenetet, és Felhasználó korlátozás és indokolás nélkül, ingyenesen leiratkozhat az ajánlatok küldéséről. Ebben az esetben Szolgáltató minden – a reklámüzenetek küldéséhez szükséges – személyes adatát törli nyilvántartásából és további reklámajánlataival nem keresi meg a Felhasználót. Felhasználó a reklámokról leiratkozhat az üzenetben lévő linkre kattintva.</p>
+      <p>4. Az információs önrendelkezési jogról és az információszabadságról szóló 2011. évi CXII. törvény 20. § (1) bekezdése alapján, meg kell határozni a hírlevél-küldés adatkezelése körében a következőket:</p>
+      <p>a) az adatgyűjtés ténye,</p>
+      <p>b) az érintettek köre,</p>
+      <p>c) az adatgyűjtés célja,</p>
+      <p>d) az adatkezelés időtartama,</p>
+      <p>e) az adatok megismerésére jogosult lehetséges adatkezelők személye,</p>
+      <p>f) az érintettek adatkezeléssel kapcsolatos jogainak ismertetése.</p>
+      <p>5. Az adatkezelés ténye, a kezelt adatok köre: név, e-mail cím, dátum, időpont, telefonszám.</p>
+      <p>6. Az érintettek köre: A hírlevélre feliratkozó valamennyi érintett.</p>
+      <p>7. Az adatkezelés célja: reklámot tartalmazó elektronikus üzenetek küldése az érintett részére, tájékoztatás nyújtása az aktuális információkról, termékekről, új funkciókról, szolgáltatásokról, akciókról stb.</p>
+      <p>8. Az adatkezelés időtartama, az adatok törlésének határideje: a hozzájáruló nyilatkozat visszavonásáig, azaz a leiratkozásig tart az adatkezelés.</p>
+      <p>9. Az adatok megismerésére jogosult lehetséges adatkezelők személye: A személyes adatokat az adatkezelő munkatársai kezelhetik, a fenti alapelvek tiszteletben tartásával.</p>
+      <p>10. Az érintettek adatkezeléssel kapcsolatos jogainak ismertetése: Az érintett bármikor, ingyenesen leiratkozhat a hírlevélről.</p>
+      <p>11. Az adatkezelés jogalapja: az érintett önkéntes hozzájárulása, az Infotv. 5. § (1) bekezdése, és a gazdasági reklámtevékenység alapvető feltételeiről és egyes korlátairól szóló 2008. évi XLVIII. törvény 6. § (5) bekezdése:</p>
+      <p>A reklámozó, a reklámszolgáltató, illetve a reklám közzétevője – a hozzájárulásban meghatározott körben – a náluk hozzájáruló nyilatkozatot tevő személyek személyes adatairól nyilvántartást vezet. Az ebben a nyilvántartásban rögzített – a reklám címzettjére vonatkozó – adat csak a hozzájáruló nyilatkozatban foglaltaknak megfelelően, annak visszavonásáig kezelhető, és harmadik fél számára kizárólag az érintett személy előzetes hozzájárulásával adható át.</p>
+      <p><strong>Facebook</strong></p>
+      <p>1. Az információs önrendelkezési jogról és az információszabadságról szóló 2011. évi CXII. törvény 20. § (1) bekezdése alapján, meg kell határozni a weboldal adattovábbítási tevékenysége körében a következőket:</p>
+      <p>a) az adatgyűjtés ténye,</p>
+      <p>b) az érintettek köre,</p>
+      <p>c) az adatgyűjtés célja,</p>
+      <p>d) az adatkezelés időtartama,</p>
+      <p>e) az adatok megismerésére jogosult lehetséges adatkezelők személye,</p>
+      <p>f) az érintettek adatkezeléssel kapcsolatos jogainak ismertetése.</p>
+      <p>2. Az adatgyűjtés ténye, a kezelt adatok köre: Facebook.com közösségi oldalon regisztrált neve, illetve a felhasználó nyilvános profilképe.</p>
+      <p>3. Az érintettek köre: Valamennyi érintett, aki regisztrált a Facebook.com közösségi oldalon, és lájkolta a weboldalt.</p>
+      <p>4. Az adatkezelés célja: A Facebook.com oldalon, a weboldal egyes tartalmi elemeinek, termékeinek, akcióinak, vagy magának a weboldalnak a megosztása, illetve lájkolása.</p>
+      <p>5. Az adatkezelés időtartama, az adatok megismerésére jogosult lehetséges adatkezelők személye és az érintettek adatkezeléssel kapcsolatos jogainak ismertetése: Az adatok forrásáról, azok kezeléséről, illetve az átadás módjáról, és jogalapjáról a http://www.facebook.com/about/privacy/ címen tájékozódhat az érintett.</p>
+      <p>6. Az adatkezelés a Facebook.com weboldalon valósul meg, így az adatkezelés időtartamára, módjára, illetve az adatok törlési és módosítási lehetőségeire a facebook.com közösségi oldal szabályozása vonatkozik: (http://www.facebook.com/legal/terms?ref=pf), (http://www.facebook.com/about/privacy/)</p>
+      <p>7. Az adatkezelés jogalapja: az érintett önkéntes hozzájárulása személyes adatai kezeléséhez a Facebook.com weboldalon.</p>
+      <p><strong>Adatbiztonság (7.§)</strong></p>
+      <p>1. Az adatkezelő köteles az adatkezelési műveleteket úgy megtervezni és végrehajtani, hogy biztosítsa az érintettek magánszférájának védelmét.</p>
+      <p>2. Az adatkezelő, illetve tevékenységi körében az adatfeldolgozó köteles gondoskodni az adatok biztonságáról, köteles továbbá megtenni azokat a technikai és szervezési intézkedéseket és kialakítani azokat az eljárási szabályokat, valamint az egyéb adat- és titokvédelmi szabályok érvényre juttatásához szükségesek.</p>
+      <p>3. Az adatokat megfelelő intézkedésekkel védeni kell különösen a jogosulatlan hozzáférés, megváltoztatás, továbbítás, nyilvánosságra hozatal, törlés vagy megsemmisítés, valamint a véletlen megsemmisülés és sérülés, továbbá az alkalmazott technika megváltozásából fakadó hozzáférhetetlenné válás ellen.</p>
+      <p>4. A különböző nyilvántartásokban elektronikusan kezelt adatállományok védelme érdekében megfelelő technikai megoldással biztosítani kell, hogy a nyilvántartásokban tárolt adatok – kivéve ha azt törvény lehetővé teszi – közvetlenül ne legyenek összekapcsolhatók és az érintetthez rendelhetők.</p>
+      <p>5. A személyes adatok automatizált feldolgozása során az adatkezelő és az adatfeldolgozó további intézkedésekkel biztosítja:</p>
+      <p>a. a jogosulatlan adatbevitel megakadályozását;</p>
+      <p>b. az automatikus adatfeldolgozó rendszerek jogosulatlan személyek általi, adatátviteli berendezés segítségével történő használatának megakadályozását;</p>
+      <p>c. annak ellenőrizhetőségét és megállapíthatóságát, hogy a személyes adatokat adatátviteli berendezés alkalmazásával mely szerveknek továbbították vagy továbbíthatják;</p>
+      <p>d. annak ellenőrizhetőségét és megállapíthatóságát, hogy mely személyes adatokat, mikor és ki vitte be az automatikus adatfeldolgozó rendszerekbe;</p>
+      <p>e. a telepített rendszerek üzemzavar esetén történő helyreállíthatóságát és</p>
+      <p>f. azt, hogy az automatizált feldolgozás során fellépő hibákról jelentés készüljön.</p>
+      <p>6. Az adatkezelőnek és az adatfeldolgozónak az adatok biztonságát szolgáló intézkedések meghatározásakor és alkalmazásakor tekintettel kell lenni a technika mindenkori fejlettségére. Több lehetséges adatkezelési megoldás közül azt kell választani, amely a személyes adatok magasabb szintű védelmét biztosítja, kivéve, ha az aránytalan nehézséget jelentene az adatkezelőnek.</p>
+      <p><strong>Az érintettek jogai (14.-19.§)</strong></p>
+      <p>1. Az érintett kérelmezheti az Szolgáltatónál, hogy az adjon tájékoztatását személyes adatai kezeléséről, kérheti személyes adatainak helyesbítését, valamint kérheti személyes adatainak – a kötelező adatkezelés kivételével – törlését vagy zárolását.</p>
+      <p>2. Az érintett kérelmére az adatkezelő tájékoztatást ad az érintett általa kezelt, illetve az általa megbízott adatfeldolgozó által feldolgozott adatairól, azok forrásáról, az adatkezelés céljáról, jogalapjáról, időtartamáról, az adatfeldolgozó nevéről, címéről és az adatkezeléssel összefüggő tevékenységéről, továbbá – az érintett személyes adatainak továbbítása esetén – az adattovábbítás jogalapjáról és címzettjéről.</p>
+      <p>3. Az adatkezelő az adattovábbítás jogszerűségének ellenőrzése, valamint az érintett tájékoztatása céljából adattovábbítási nyilvántartást vezet, amely tartalmazza az általa kezelt személyes adatok továbbításának időpontját, az adattovábbítás jogalapját és címzettjét, a továbbított személyes adatok körének meghatározását, valamint az adatkezelést előíró jogszabályban meghatározott egyéb adatokat.</p>
+      <p>4. Az adatkezelő köteles a kérelem benyújtásától számított legrövidebb idő alatt, legfeljebb azonban 30 napon belül, közérthető formában, az érintett erre irányuló kérelmére írásban megadni a tájékoztatást. A tájékoztatás ingyenes.</p>
+      <p>5. Felhasználó kérelmére Szolgáltató tájékoztatást ad az általa kezelt adatokról, azok forrásáról, az adatkezelés céljáról, jogalapjáról, időtartamáról, az esetleges adatfeldolgozó nevéről, címéről és az adatkezeléssel összefüggő tevékenységéről, továbbá – az érintett személyes adatainak továbbítása esetén – az adattovábbítás jogalapjáról és címzettjéről. Szolgáltató a kérelem benyújtásától számított legrövidebb idő alatt, legfeljebb azonban 30 napon belül írásban, közérthető formában adja meg a tájékoztatást. A tájékoztatás ingyenes.</p>
+      <p>6. Szolgáltató, amennyiben a személyes adat a valóságnak nem felel meg, és a valóságnak megfelelő személyes adat az adatkezelő rendelkezésére áll, a személyes adatot helyesbíti.</p>
+      <p>7. Törlés helyett Szolgáltató zárolja a személyes adatot, ha a Felhasználó ezt kéri, vagy ha a rendelkezésére álló információk alapján feltételezhető, hogy a törlés sértené a Felhasználó jogos érdekeit. A zárolt személyes adat kizárólag addig kezelhető, ameddig fennáll az az adatkezelési cél, amely a személyes adat törlését kizárta.</p>
+      <p>8. Szolgáltató törli a személyes adatot, ha kezelése jogellenes, a Felhasználó kéri, a kezelt adat hiányos vagy téves – és ez az állapot jogszerűen nem orvosolható – feltéve, hogy a törlést törvény nem zárja ki, az adatkezelés célja megszűnt, vagy az adatok tárolásának törvényben meghatározott határideje lejárt, azt a bíróság vagy a Nemzeti Adatvédelmi és Információszabadság Hatóság elrendelte.</p>
+      <p>9. Az adatkezelő megjelöli az általa kezelt személyes adatot, ha az érintett vitatja annak helyességét vagy pontosságát, de a vitatott személyes adat helytelensége vagy pontatlansága nem állapítható meg egyértelműen.</p>
+      <p>10. A helyesbítésről, a zárolásról, a megjelölésről és a törlésről az érintettet, továbbá mindazokat értesíteni kell, akiknek korábban az adatot adatkezelés céljára továbbították. Az értesítés mellőzhető, ha ez az adatkezelés céljára való tekintettel az érintett jogos érdekét nem sérti.</p>
+      <p>11. Ha az adatkezelő az érintett helyesbítés, zárolás vagy törlés iránti kérelmét nem teljesíti, a kérelem kézhezvételét követő 30 napon belül írásban közli a helyesbítés, zárolás vagy törlés iránti kérelem elutasításának ténybeli és jogi indokait. A helyesbítés, törlés vagy zárolás iránti kérelem elutasítása esetén az adatkezelő tájékoztatja az érintettet a bírósági jogorvoslat, továbbá a Hatósághoz fordulás lehetőségéről.</p>
+      <p><strong>Jogorvoslat</strong></p>
+      <p>1. Felhasználó tiltakozhat személyes adatának kezelése ellen, ha</p>
+      <p>a) a személyes adatok kezelése vagy továbbítása kizárólag az Szolgáltatóra vonatkozó jogi kötelezettség teljesítéséhez, vagy az Szolgáltató, adatátvevő vagy harmadik személy jogos érdekének érvényesítéséhez szükséges, kivéve, ha az adatkezelést törvény rendelte el;</p>
+      <p>b) a személyes adat felhasználása vagy továbbítása közvetlen üzletszerzés, közvélemény-kutatás vagy tudományos kutatás céljára történik;</p>
+      <p>c) törvényben meghatározott egyéb esetben.</p>
+      <p>2. Szolgáltató a tiltakozást a kérelem benyújtásától számított legrövidebb időn belül, de legfeljebb 15 nap alatt megvizsgálja, annak megalapozottsága kérdésében döntést hoz, és döntéséről a kérelmezőt írásban tájékoztatja. Ha az Szolgáltató az érintett tiltakozásának megalapozottságát megállapítja, az adatkezelést – beleértve a további adatfelvételt és adattovábbítást is – megszünteti, és az adatokat zárolja, valamint a tiltakozásról, továbbá az annak alapján tett intézkedésekről értesíti mindazokat, akik részére a tiltakozással érintett személyes adatot korábban továbbította, és akik kötelesek intézkedni a tiltakozási jog érvényesítése érdekében.</p>
+      <p>3. Amennyiben a Felhasználó Szolgáltatónak a meghozott döntésével nem ért egyet, az ellen – annak közlésétől számított 30 napon belül – bírósághoz fordulhat. A bíróság soron kívül jár el.</p>
+      <p>4. Az adatkezelő esetleges jogsértése ellen panasszal a Nemzeti Adatvédelmi és Információszabadság Hatóságnál lehet élni:</p>
+      <p>Nemzeti Adatvédelmi és Információszabadság Hatóság</p>
+      <p>1125 Budapest, Szilágyi Erzsébet fasor 22/C.</p>
+      <p>Levelezési cím: 1530 Budapest, Postafiók: 5.</p>
+      <p>Telefon: +36 -1-391-1400</p>
+      <p>Fax: +36-1-391-1410</p>
+      <p>E-mail: ugyfelszolgalat@naih.hu</p>
+      <p><strong>Bírósági jogérvényesítés (22.§)</strong></p>
+      <p>1. Azt, hogy az adatkezelés a jogszabályban foglaltaknak megfelel, az adatkezelő köteles bizonyítani. Az adattovábbítás jogszerűségét az adatátvevő köteles bizonyítani.</p>
+      <p>2. A per elbírálása a törvényszék hatáskörébe tartozik. A per – az érintett választása szerint – az érintett lakóhelye vagy tartózkodási helye szerinti törvényszék előtt is megindítható.</p>
+      <p>3. A perben fél lehet az is, akinek egyébként nincs perbeli jogképessége. A perbe a Hatóság az érintett pernyertessége érdekében beavatkozhat.</p>
+      <p>4. Ha a bíróság a kérelemnek helyt ad, az adatkezelőt a tájékoztatás megadására, az adat helyesbítésére, zárolására, törlésére, az automatizált adatfeldolgozással hozott döntés megsemmisítésére, az érintett tiltakozási jogának figyelembevételére, illetve az adatátvevő által kért adat kiadására kötelezi.</p>
+      <p>5. Ha a bíróság az adatátvevő kérelmét elutasítja, az adatkezelő köteles az érintett személyes adatát az ítélet közlésétől számított 3 napon belül törölni. Az adatkezelő köteles az adatokat akkor is törölni, ha az adatátvevő a meghatározott határidőn belül nem fordul bírósághoz.</p>
+      <p>6. A bíróság elrendelheti ítéletének – az adatkezelő azonosító adatainak közzétételével történő – nyilvánosságra hozatalát, ha azt az adatvédelem érdekei és nagyobb számú érintett védett jogai megkövetelik.</p>
+      <p><strong>Kártérítés és sérelemdíj (23. §)</strong></p>
+      <p>1. Ha az adatkezelő az érintett adatainak jogellenes kezelésével vagy az adatbiztonság követelményeinek megszegésével másnak kárt okoz, köteles azt megtéríteni.</p>
+      <p>2. Ha az adatkezelő az érintett adatainak jogellenes kezelésével vagy az adatbiztonság követelményeinek megszegésével az érintett személyiségi jogát megsérti, az érintett az adatkezelőtől sérelemdíjat követelhet.</p>
+      <p>3. Az érintettel szemben az adatkezelő felel az adatfeldolgozó által okozott kárért és az adatkezelő köteles megfizetni az érintettnek az adatfeldolgozó által okozott személyiségi jogsértés esetén járó sérelemdíjat is. Az adatkezelő mentesül az okozott kárért való felelősség és a sérelemdíj megfizetésének kötelezettsége alól, ha bizonyítja, hogy a kárt vagy az érintett személyiségi jogának sérelmét az adatkezelés körén kívül eső elháríthatatlan ok idézte elő.</p>
+      <p>4. Nem kell megtéríteni a kárt és nem követelhető a sérelemdíj annyiban, amennyiben a kár a károsult vagy a személyiségi jog megsértésével okozott jogsérelem az érintett szándékos vagy súlyosan gondatlan magatartásából származott.</p>
+      <p><strong>Zárszó</strong></p>
+      <p>A tájékoztató elkészítése során figyelemmel voltunk az alábbi jogszabályokra:</p>
+      <p>– 2011. évi CXII. törvény – az információs önrendelkezési jogról és az információszabadságról (a továbbiakban: Infotv.)</p>
+      <p>– 2001. évi CVIII. törvény – az elektronikus kereskedelmi szolgáltatások, valamint az információs társadalommal összefüggő szolgáltatások egyes kérdéseiről (főképp a 13/A. §-a)</p>
+      <p>– 2008. évi XLVII. törvény – a fogyasztókkal szembeni tisztességtelen kereskedelmi gyakorlat tilalmáról;</p>
+      <p>– 2008. évi XLVIII. törvény – a gazdasági reklámtevékenység alapvető feltételeiről és egyes korlátairól (különösen a 6.§-a)</p>
+      <p>– 2005. évi XC. törvény az elektronikus információszabadságról</p>
+      <p>– 2003. évi C. törvény az elektronikus hírközlésről (kifejezetten a 155.§-a)</p>
+      <p>– 16/2011. sz. vélemény a viselkedésalapú online reklám bevált gyakorlatára vonatkozó EASA/IAB-ajánlásról<br></p>
+   </div>
+</div>
+{% endblock %}

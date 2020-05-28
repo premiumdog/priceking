@@ -1,0 +1,135 @@
+{% extends "../base.html" %}
+{% load static %}
+
+{% block title %}
+{% if category %}{{ category.name }}{% else %}Keresés a termékek között{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<aside class="col-lg-3 blog-sidebar">
+
+
+
+  <div class="p-4 mb-3 bg-light">
+    <form action="{% url 'shop:search' %}" method="GET" class="filter-form">
+
+
+
+      <p class="sidebar-title">Termékkategóriák</p>
+
+      {%for category in category_list%}
+
+      <input type="checkbox" class="" name="category" value="{{ category.slug }}">
+      {{ category.name }}<br>
+
+      {%endfor%}
+      <hr class="my-3">
+
+      <p class="sidebar-title">Webáruház</p>
+
+      {%for company in companies%}
+
+      <input type="checkbox" class="" name="company" value="{{ company.user.username }}">
+      {{ company.store_name }}<br>
+
+      {%endfor%}
+      <hr class="my-3">
+
+      <p class="sidebar-title">Ár</p>
+      <div class="row">
+        <div class="col-6">
+          <div class="form-group text-center">
+            <input type="number" class="form-control form-control-alternative" placeholder="min" value="1"
+              name="min_price">
+          </div>
+        </div>
+        <div class="col-6">
+          <div class="form-group text-center">
+            <input type="number" class="form-control form-control-alternative" placeholder="max" name="max_price">
+          </div>
+        </div>
+      </div>
+      <input type="submit" class="btn btn-secondary btn-block btn-sm" value="Szűrés">
+      <a href="{% url 'shop:search' %}" class="btn btn-danger btn-block btn-sm">Szűrés törlése</a>
+    </form>
+  </div>
+
+
+</aside><!-- /.blog-sidebar -->
+
+
+
+
+<div class="col-lg-9 blog-main">
+
+  <div class="sidebar p-0 bg-light mb-3 border-left-orange">
+    <nav class="nav main-nav">
+      <a class="nav-link" href="/">Kezdőlap</a>
+      <a class="nav-link" href="{% url 'shop:product_latest' %}">Újdonságok</a>
+      <a class="nav-link" href="{% url 'shop:product_most_viewed' %}">Legnépszerűbb termékek</a>
+      <a class="nav-link" href="{% url 'shop:product_offer' %}">Aktuális ajánlatok</a>
+      <a class="nav-link" href="{% url 'shop:product_discount' %}">% Akció</a>
+    </nav>
+  </div>
+
+  <div class="home-header">
+    <div class="row">
+      <div class="col-6">
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="#">Kezdőlap</a></li>
+
+            <li class="breadcrumb-item active" aria-current="page">Keresés</li>
+
+          </ol>
+        </nav>
+      </div>
+      <div class="col-6 text-right mb-1"><small>Összes találat: {{products | length}} db</small></div>
+    </div>
+
+  </div>
+
+
+  <div class="row">
+    {% for product in products%}
+    <div class="col-6 col-lg-3 mb-3">
+        <a href="{% url 'shop:product_details' product.product_id product.slug %}">
+      <div class="card">
+        <div
+          style="background: url('{{product.product_image_link}}');height:180px;background-position: center center;background-repeat: no-repeat;background-size: 80%;">
+        </div>
+        <div class="card-body">
+           {% if product.product_category %}
+          <small class="card-category">{{product.product_category}}</small>
+          {% else %}
+          {% endif %}
+          <h5 class="card-title mb-0"><a
+              href="{% url 'shop:product_details' product.product_id product.slug %}">{{product.product_name|truncatechars:40}}</a>
+          </h5>
+          <ul class="list-unstyled">
+            {% if product.product_available == 'in stock'%}
+            <li><small class="card-stock">Raktáron: elérhető</small></li>
+            {%else%}
+            <li><small class="card-stock">Raktáron: {{product.product_available}}</small></li>
+            {%endif%}
+            {% if product.product_sale_price%}
+            <li>
+              <span class="card-sale-price"><small>{{product.product_price}} Ft</small></span>
+              <span class="card-price">{{product.product_sale_price}} Ft</span></li>
+            {%else%}
+            <li><span class="card-price">{{product.product_price}} Ft</span></li>
+            {%endif%}
+          </ul>
+        </div>
+      </div>
+      </a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+
+
+
+{% endblock %}

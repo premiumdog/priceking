@@ -1,0 +1,194 @@
+{% extends "../base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+{% if category %}{{ category.name }}{% else %}Fiókom - Kreditfeltöltés{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<aside class="col-lg-3 blog-sidebar order-1 order-lg-0">
+
+  <div class="sidebar p-4 bg-light mb-3">
+    <h6 class="sidebar-title">Vezérlőpult</h6>
+    <nav class="nav flex-column">
+      <a class="nav-link active" href="{% url 'accounts:profile_credit' %}">Kreditfeltöltés</a>
+      <a class="nav-link" href="{% url 'accounts:profile' %}">Fiókom</a>
+      <a class="nav-link" href="{% url 'accounts:profile_edit' %}">Fiókadatok módosítása</a>
+      <a class="nav-link" href="{% url 'accounts:profile_product' %}">Saját termékeim</a>
+      <a class="nav-link" href="{% url 'accounts:profile_affiliate' %}">Statisztika</a>
+    </nav>
+  </div>
+
+
+</aside><!-- /.blog-sidebar -->
+
+<div class="col-lg-9 blog-main order-0 order-lg-1">
+
+  <div class="sidebar p-0 bg-light mb-3 border-left-orange">
+    <nav class="nav main-nav">
+      <a class="nav-link" href="/">Kezdőlap</a>
+      <a class="nav-link" href="{% url 'shop:product_latest' %}">Újdonságok</a>
+      <a class="nav-link" href="{% url 'shop:product_most_viewed' %}">Legjobb minőségű termékek</a>
+      <a class="nav-link" href="{% url 'shop:product_offer' %}">Aktuális ajánlatok</a>
+      <a class="nav-link" href="{% url 'shop:product_discount' %}">% Akció</a>
+    </nav>
+  </div>
+
+  <div class="home-header">
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Kezdőlap</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Kreditfeltöltés</li>
+      </ol>
+    </nav>
+  </div>
+
+
+
+
+    <div class="row">
+        <div class="col-12">
+        <h6 class="font-weight-bold">Kreditfeltöltés</h6>
+    <small class="mb-0">Töltsd fel az egyenleged a premiumDog-on és értékesíts még többet.
+</small>
+<hr>
+        </div>
+
+
+    <div class="col-6 col-lg-3 mb-3">
+
+
+      <div class="card bg-light">
+        <div class="card-body p-2">
+            <h3>Platina</h3>
+
+          <h5>100.000 Ft</h5>
+          <p>+<p>
+              <small>50.000 Ft Ajándék kreditfeltöltés</small>
+            <h6>Extra bónusz:</h4>
+            <small>10 hónap ingyenes megjelenés a premiumdog.hu főoldalán</small>
+
+
+              <a href="#order-form" class="btn btn-sm btn-secondary my-3">Kreditvásárlás</a>
+        </div>
+      </div>
+    </div>
+
+
+        <div class="col-6 col-lg-3 mb-3">
+      <div class="card text-white" style="background: #e77600">
+        <div class="card-body p-2">
+            <h3>⭐Gold⭐</h3>
+
+          <h5>50.000 Ft</h5>
+          <p>+<p>
+              <small>25.000Ft Ajándék kreditfeltöltés</small>
+            <h6>Extra bónusz:</h4>
+            <small>5 hónap ingyenes megjelenés a premiumdog.hu főoldalán</small>
+
+
+              <a href="#order-form" class="btn btn-sm btn-light my-3">Kreditvásárlás</a>
+        </div>
+      </div>
+    </div>
+
+           <div class="col-6 col-lg-3 mb-3">
+      <div class="card bg-light">
+        <div class="card-body p-2">
+            <h3>Silver</h3>
+
+          <h5>30.000 Ft</h5>
+          <p>+<p>
+              <small>15.000 Ft Ajándék kreditfeltöltés</small>
+            <h6>Extra bónusz:</h4>
+            <small>3 hónap ingyenes megjelenés a premiumdog.hu főoldalán</small>
+
+
+              <a href="#order-form" class="btn btn-sm btn-secondary my-3">Kreditvásárlás</a>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-6 col-lg-3 mb-3">
+      <div class="card bg-light">
+        <div class="card-body p-2">
+            <h3>Bronz</h3>
+
+          <h5>10.000 Ft</h5>
+          <p>+<p>
+              <small>5.000 Ft Ajándék kreditfeltöltés</small>
+            <h6>Extra bónusz:</h4>
+            <small>1 hónap ingyenes megjelenés a premiumdog.hu főoldalán</small>
+
+
+              <a href="#order-form" class="btn btn-sm btn-secondary my-3">Kreditvásárlás</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <hr>
+  <strong>Fennmaradó kredit:</strong> {{available_credit.credit}}
+  <hr>
+
+
+  <div class="row px-3" id="order-form">
+    <div class="col-12 bg-light p-4">
+      <form action="{% url 'accounts:profile_credit' %}" method="POST">
+        {% csrf_token %}
+        <h5>Csomagok</h5>
+        <hr>
+        <div class="form-group">
+          <label>Kérem válasszon csomagot:</label>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="pack" id="pack_1" value="100000">
+            <label class="form-check-label" for="pack_1">
+              Platina csomag - 100.000 Ft
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="pack" id="pack_2" value="50000" checked>
+            <label class="form-check-label" for="pack_2">
+              Gold csomag - 50.000 Ft (Legnépszerűbb csomag)
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="pack" id="pack_3" value="30000">
+            <label class="form-check-label" for="pack_3">
+              Silver csomag - 30.000 Ft
+            </label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="pack" id="pack_4" value="10000">
+            <label class="form-check-label" for="pack_4">
+              Bronz csomag - 10.000 Ft
+            </label>
+          </div>
+        </div>
+        <br>
+<h5>Számlázási adatok</h5>
+<hr>
+        <table>
+          {{ credit_form|crispy }}
+        </table>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="acceptance">
+          <label class="form-check-label" for="acceptance">Elolvastam és elfogadom az <a href="{% url 'shop:page_gdpr' %}" class="text-warning" target="_blank">adatvédelmi nyilatkozatot</a></label>
+        </div>
+        <div class="form-group form-check">
+          <input type="checkbox" class="form-check-input" id="acceptance">
+          <label class="form-check-label" for="acceptance">Elolvastam és elfogadom az <a href="{% url 'shop:page_aszf' %}" class="text-warning" target="_blank">általános szerződési feltételeket</a></label>
+        </div>
+        <button type="submit" class="btn btn-secondary btn-block">Kreditfeltöltés</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+
+{% endblock %}

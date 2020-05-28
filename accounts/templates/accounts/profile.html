@@ -1,0 +1,182 @@
+{% extends "../base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+{% if category %}{{ category.name }}{% else %}Fiókom - {{profile.store_name}}{% endif %}
+{% endblock %}
+
+{% block content %}
+
+<aside class="col-lg-3 blog-sidebar order-1 order-lg-0">
+
+  <div class="sidebar p-4 bg-light mb-3">
+    <h6 class="sidebar-title">Vezérlőpult</h6>
+    <nav class="nav flex-column">
+      <a class="nav-link" href="{% url 'accounts:profile_credit' %}">Kreditfeltöltés</a>
+      <a class="nav-link active" href="{% url 'accounts:profile' %}">Fiókom</a>
+      <a class="nav-link" href="{% url 'accounts:profile_edit' %}">Fiókadatok módosítása</a>
+      <a class="nav-link" href="{% url 'accounts:profile_product' %}">Saját termékeim</a>
+      <a class="nav-link" href="{% url 'accounts:profile_affiliate' %}">Statisztika</a>
+    </nav>
+  </div>
+
+
+
+</aside><!-- /.blog-sidebar -->
+
+<div class="col-lg-9 blog-main order-0 order-lg-1">
+  <div class="sidebar p-0 bg-light mb-3 border-left-orange">
+    <nav class="nav main-nav">
+      <a class="nav-link" href="/">Kezdőlap</a>
+      <a class="nav-link" href="{% url 'shop:product_latest' %}">Újdonságok</a>
+      <a class="nav-link" href="{% url 'shop:product_most_viewed' %}">Legjobb minőségű termékek</a>
+      <a class="nav-link" href="{% url 'shop:product_offer' %}">Aktuális ajánlatok</a>
+      <a class="nav-link" href="{% url 'shop:product_discount' %}">% Akció</a>
+    </nav>
+  </div>
+
+  <div class="home-header">
+
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/">Kezdőlap</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Fiókom</li>
+      </ol>
+    </nav>
+  </div>
+
+
+
+
+  <div class="row">
+      <div class="col-12">
+       <h6 class="font-weight-bold">Fiókom</h6>
+    <small class="mb-0">Töltsd fel az egyenleged a premiumDog-on és értékesíts még többet.</small>
+    <hr>
+    </div>
+
+
+    <div class="col-6 col-lg-3 mb-3">
+
+      <div class="card bg-light">
+        <div class="card-body p-2">
+            <h3>Platina</h3>
+
+          <h5>100.000 Ft</h5>
+          <p>+<p>
+              <small>50.000 Ft Ajándék kreditfeltöltés</small>
+            <h6>Extra bónusz:</h4>
+            <small>10 hónap ingyenes megjelenés a premiumdog.hu főoldalán</small>
+
+
+              <a href="{% url 'accounts:profile_credit' %}" class="btn btn-sm btn-secondary my-3">Kreditvásárlás</a>
+        </div>
+      </div>
+    </div>
+
+
+        <div class="col-6 col-lg-3 mb-3">
+      <div class="card text-white" style="background: #e77600">
+        <div class="card-body p-2">
+            <h3>⭐Gold⭐</h3>
+
+          <h5>50.000 Ft</h5>
+          <p>+<p>
+              <small>25.000Ft Ajándék kreditfeltöltés</small>
+            <h6>Extra bónusz:</h4>
+            <small>5 hónap ingyenes megjelenés a premiumdog.hu főoldalán</small>
+
+
+              <a href="{% url 'accounts:profile_credit' %}" class="btn btn-sm btn-light my-3">Kreditvásárlás</a>
+        </div>
+      </div>
+    </div>
+
+           <div class="col-6 col-lg-3 mb-3">
+      <div class="card bg-light">
+        <div class="card-body p-2">
+            <h3>Silver</h3>
+
+          <h5>30.000 Ft</h5>
+          <p>+<p>
+              <small>15.000 Ft Ajándék kreditfeltöltés</small>
+            <h6>Extra bónusz:</h4>
+            <small>3 hónap ingyenes megjelenés a premiumdog.hu főoldalán</small>
+
+
+              <a href="{% url 'accounts:profile_credit' %}" class="btn btn-sm btn-secondary my-3">Kreditvásárlás</a>
+        </div>
+      </div>
+    </div>
+
+     <div class="col-6 col-lg-3 mb-3">
+      <div class="card bg-light">
+        <div class="card-body p-2">
+            <h3>Bronz</h3>
+
+          <h5>10.000 Ft</h5>
+          <p>+<p>
+              <small>5.000 Ft Ajándék kreditfeltöltés</small>
+            <h6>Extra bónusz:</h4>
+            <small>1 hónap ingyenes megjelenés a premiumdog.hu főoldalán</small>
+
+
+              <a href="{% url 'accounts:profile_credit' %}" class="btn btn-sm btn-secondary my-3">Kreditvásárlás</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <hr>
+  <strong>Fennmaradó kredit:</strong> {{profile.credit}}
+  <hr>
+
+  <div class="row">
+    <div class="col-12 col-md-3 p-3 order-lg-1 order-0">
+      <img src="/media/{{profile.profile_image}}" class="w-100" alt="">
+    </div>
+    <div class="col-12 col-md-9 p-3 order-lg-0 order-1">
+      <h3>{{profile.store_name}}</h3>
+
+
+
+      <div class="row">
+        <div class="col-12 col-lg-6">
+          <ul class="list-unstyled">
+            <li><strong>Fizetési lehetőség:</strong> {{profile.store_payments}}</li>
+            <li><strong>Átvételi lehetőség:</strong> {{profile.store_order_method}}</li>
+            <li><strong>Szállítási lehetőség:</strong> {{profile.store_delivery_method}}</li>
+            <li><strong>Üzlet címe:</strong> {{profile.store_location}}</li>
+            <li><strong>Adószám:</strong> {{profile.tax_number}}</li>
+            <li><strong>EU adószám:</strong> {{profile.tax_number_eu}}</li>
+          </ul>
+        </div>
+        <div class="col-12 col-lg-6">
+          <ul class="list-unstyled">
+            <li><strong>Üzlet/vállalkozás fajátja:</strong> {{profile.form_of_enterprise}}</li>
+            <li><strong>Nyilvántartási szám: </strong> {{profile.store_registration_number}}</li>
+            <li><strong>Ország:</strong> {{profile.store_main_location}}</li>
+            <li><strong>Város:</strong> {{profile.store_city}}</li>
+            <li><strong>Cím</strong> {{profile.store_street}}</li>
+            <li><strong>Irányítószám</strong> {{profile.store_zip}}</li>
+            <li><strong>Kapcsolattartási e-mail cím</strong> {{profile.store_contact_email}}</li>
+            <li><strong>Kapcsolattartási telefonszám</strong> {{profile.store_contact_phone}}</li>
+          </ul>
+        </div>
+      </div>
+
+
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <p>{{profile.store_description | safe}}</p>
+    </div>
+  </div>
+
+
+  {% endblock %}
